@@ -1,4 +1,4 @@
-#Image Resizer 
+#Image Resizer
 
 [![Build Status](https://travis-ci.org/josephwilk/image-resizer.png?branch=master)](https://travis-ci.org/josephwilk/image-resizer)
 
@@ -9,6 +9,15 @@
 Clojure library which uses
 [imgscalr](http://www.thebuzzmedia.com/software/imgscalr-java-image-scaling-library)
 under the hood.
+
+
+#Usage
+
+```clojure
+#Resize an image while respecting original ratio
+(resize (file "white-rabbit.jpg" 10 10)) ; => BufferedImage
+```
+
 
 ##License
 (The MIT License)
