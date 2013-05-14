@@ -4,7 +4,7 @@ Image Resizer
 [![Build Status](https://travis-ci.org/josephwilk/image-resizer.png?branch=master)](https://travis-ci.org/josephwilk/image-resizer)
 
 Uses
-(http://www.thebuzzmedia.com/software/imgscalr-java-image-scaling-library/|imgscalr)
+[imgscalr](http://www.thebuzzmedia.com/software/imgscalr-java-image-scaling-library)
 under the hood.
 
 ##License
