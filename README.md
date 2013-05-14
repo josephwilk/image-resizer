@@ -6,9 +6,12 @@
 
 <img alt="Drink to make small" src="http://external.ak.fbcdn.net/safe_image.php?d=AQDnFdmx5U39plmD&w=489&h=696&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F6%2F63%2FAlice_par_John_Tenniel_04.png" height="250px" />
 
-Clojure library which uses
-[imgscalr](http://www.thebuzzmedia.com/software/imgscalr-java-image-scaling-library)
-under the hood.
+## Why?
+
+* Very fast (supports hardware accelerated operations on most platforms)
+* No native libraries to install (I'm looking at you imagemagick)
+
+Image Resizer under the hood wraps [imgscalr](http://www.thebuzzmedia.com/software/imgscalr-java-image-scaling-library).
 
 ##Installation
 
