@@ -14,7 +14,7 @@ under the hood.
 #Usage
 
 ```clojure
-#Resize an image while respecting original ratio
+;Resize an image while respecting original ratio
 (resize (file "white-rabbit.jpg" 10 10)) ; => BufferedImage
 ```
 
