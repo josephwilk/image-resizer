@@ -10,18 +10,18 @@
   (first (seq (.split (.getName file) "\\."))))
 
 (defn- path [file]
-  (str/join "/" (butlast (seq (.split (.getAbsolutePath file) "/")))))
+  (str/join "/" (butlast (seq (str/split (.getAbsolutePath file) #"/")))))
 
 (defn extension [file]
-  (last (seq (.split (.getName file) "\\."))))
+  (last (seq (str/split (.getName file) #"\."))))
 
 (defn- new-filename [file dimensions]
   (str (path file) "/" (file-name file) "_" (str/join "x" dimensions) "." (extension file)))
 
+(defn- buffered-image [file] (ImageIO/read file))
+
 (defn dimensions [image]
   [(.getWidth image) (.getHeight image)])
-
-(defn buffered-image [file] (ImageIO/read file))
 
 (defn resize
   ([file width]
