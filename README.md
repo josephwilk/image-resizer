@@ -1,4 +1,4 @@
-#Image Resizer
+#Clojure Image Resizer
 
 [![Build Status](https://travis-ci.org/josephwilk/image-resizer.png?branch=master)](https://travis-ci.org/josephwilk/image-resizer)
 
