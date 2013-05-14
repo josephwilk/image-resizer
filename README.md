@@ -1,5 +1,7 @@
-Image Resizer
+Image Resizer (Drink to make small)
 =============
+
+![Drink to make small](http://external.ak.fbcdn.net/safe_image.php?d=AQDnFdmx5U39plmD&w=489&h=696&url=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F6%2F63%2FAlice_par_John_Tenniel_04.png)
 
 [![Build Status](https://travis-ci.org/josephwilk/image-resizer.png?branch=master)](https://travis-ci.org/josephwilk/image-resizer)
 
