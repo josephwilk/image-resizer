@@ -10,13 +10,13 @@ Clojure library which uses
 [imgscalr](http://www.thebuzzmedia.com/software/imgscalr-java-image-scaling-library)
 under the hood.
 
-#Installation
+##Installation
 
 Add the following dependency to your project.clj file:
 
 https://clojars.org/image-resizer
 
-#Usage
+##Usage
 
 ```clojure
 ;Resize an image while respecting original ratio
