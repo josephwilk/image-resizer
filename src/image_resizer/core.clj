@@ -19,10 +19,10 @@
 (defn dimensions [image]
   [(.getWidth image) (.getHeight image)])
 
-(defn fit-width [file width]
+(defn resize-to-width [file width]
   (Scalr/resize (buffered-image file) fit-width-mode width nil))
 
-(defn fit-height [file height]
+(defn resize-to-height [file height]
   (Scalr/resize (buffered-image file) fit-height-mode height nil))
 
 (defn resize

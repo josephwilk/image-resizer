@@ -18,11 +18,11 @@
       (= [width height]
          (dimensions buffered-file)))))
 
-(fact "fit-width"
-  (fit-width test-image 44) => (dimensions-of [44 23]))
+(fact "resize to width"
+  (resize-to-width test-image 44) => (dimensions-of [44 23]))
 
-(fact "fit-height"
-  (fit-height test-image 66) => (dimensions-of [126 66]))
+(fact "resize to height"
+  (resize-to-height test-image 66) => (dimensions-of [126 66]))
 
 (facts "resize"
   (fact "resize a file to a specific width and height respecting dimensions"
@@ -31,6 +31,6 @@
       resized-image => (dimensions-of [10 5]))))
 
 (facts "resize-to-file"
-  (fact "resize a file to a specific width and height"
+  (fact "resize a file to a specific width and height outputting result as a file"
     (let [resized-image (resize-to-file test-image 10 10)]
       (.exists (as-file "test/fixtures/platypus_10x5.jpg")) => truthy)))
