@@ -26,13 +26,13 @@ https://clojars.org/image-resizer
 
 ;Resize an image while respecting original ratio
 ;Notice how the height is not 10 to respect the ratio of the image
-(resize (file "white-rabbit.jpg") 10 10) ; => #<BufferedImage width=10 height=4>
+(resize (file "white-rabbit.jpg") 10 10)          ; => #<BufferedImage width=10 height=4>
 
 ;Resize an image to a width
 (resize-to-width (file "queen-of-hearts.jpg") 10) ; => #<BufferedImage width=10 height=4>
 
 ;Resize an image to a height
-(resize-to-height (file "cheshire-cat.jpg") 10) ; => #<BufferedImage width=5 height=10>
+(resize-to-height (file "cheshire-cat.jpg") 10)   ; => #<BufferedImage width=5 height=10>
 
 ;Turning a BufferedImage into something useful
 
@@ -40,7 +40,7 @@ https://clojars.org/image-resizer
 
 ;Saving as a file
 (format/save-as-file (resize (file "tea-party/mad-hatter.jpg") 10 10)
-                     (.getAbsolutePath (file "tea-party/mad-hatter.jpg"))) ; => "tea-party/mad-hatter_10x5.jpg"
+                     "/tmp/tea-party/mad-hatter.jpg") ; => "/tmp/tea-party/mad-hatter_10x5.jpg"
 ```
 
 ##License
