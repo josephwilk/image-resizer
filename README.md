@@ -57,8 +57,7 @@ https://clojars.org/image-resizer
 ;Crop the image width and height from given x and y coordinates
 (crop (file "tea-party/mad-hatter.jpg") 0 0 10 20) ; => #<BufferedImage width=10 height=20>
 
-;Resize the image maintaining proportions and then crop it to the
-specified width and height
+;Resize the image maintaining proportions and then crop it to the specified width and height
 (resize-and-crop (file "tea-party/mad-hatter.jpg") 10 10) ; => #<BufferedImage width=10 height=10>
 ```
 
