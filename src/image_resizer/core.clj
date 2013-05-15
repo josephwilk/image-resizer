@@ -25,18 +25,5 @@
 (defn resize-to-height [file height]
   (Scalr/resize (buffered-image file) fit-height-mode height nil))
 
-(defn resize
-  ([file width]
-     (Scalr/resize (buffered-image file) width nil))
-  ([file width height]
-     (Scalr/resize (buffered-image file) width height nil)))
-
-(defn resize-to-file [file width height]
-  (let [resized-buffered-image (Scalr/resize (buffered-image file) width height nil)
-        new-dimensions (dimensions resized-buffered-image)
-
-        name (.getName file)
-        path (.getAbsolutePath file)
-
-        resized-file (File. (fs/new-filename name path new-dimensions))]
-    (ImageIO/write resized-buffered-image (fs/extension name) resized-file)))
+(defn resize [file width height]
+  (Scalr/resize (buffered-image file) width height nil))

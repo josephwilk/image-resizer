@@ -22,6 +22,8 @@ https://clojars.org/image-resizer
 ##Usage
 
 ```clojure
+(require [image-resizer.core :refer :all])
+
 ;Resize an image while respecting original ratio
 ;Notice how the height is not 10 to respect the ratio of the image
 (resize (file "white-rabbit.jpg") 10 10) ; => #<BufferedImage width=10 height=4>
@@ -32,8 +34,13 @@ https://clojars.org/image-resizer
 ;Resize an image to a height
 (resize-to-height (file "cheshire-cat.jpg") 10) ; => #<BufferedImage width=5 height=10>
 
-;Resize an image to file
-(resize-to-file (file "mad-hatter.jpg") 10 10) ; => "mad-hatter_10x10.jpg"
+;Turning a BufferedImage into something useful
+
+(require [image-resizer.format :refer :as format])
+
+;Saving as a file
+(format/save-as-file (file "mad-hatter.jpg")
+                     (resize (file "mad-hatter.jpg") 10 10)) ; => "mad-hatter_10x5.jpg"
 ```
 
 ##License

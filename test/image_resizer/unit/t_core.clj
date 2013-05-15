@@ -29,8 +29,3 @@
     (let [resized-image (resize test-image 10 10)]
       test-image    => (dimensions-of [600 314])
       resized-image => (dimensions-of [10 5]))))
-
-(facts "resize-to-file"
-  (fact "resize a file to a specific width and height outputting result as a file"
-    (let [resized-image (resize-to-file test-image 10 10)]
-      (.exists (as-file "test/fixtures/platypus_10x5.jpg")) => truthy)))
