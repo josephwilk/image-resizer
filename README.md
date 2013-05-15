@@ -39,8 +39,8 @@ https://clojars.org/image-resizer
 (require [image-resizer.format :refer :as format])
 
 ;Saving as a file
-(format/save-as-file (file "mad-hatter.jpg")
-                     (resize (file "mad-hatter.jpg") 10 10)) ; => "mad-hatter_10x5.jpg"
+(format/save-as-file (resize (file "tea-party/mad-hatter.jpg") 10 10)
+                     (.getAbsolutePath (file "tea-party/mad-hatter.jpg"))) ; => "tea-party/mad-hatter_10x5.jpg"
 ```
 
 ##License
