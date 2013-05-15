@@ -8,10 +8,10 @@
    [org.imgscalr Scalr]
    [org.imgscalr Scalr$Mode]))
 
-(def fit-width-mode
+(def- fit-width-mode
   Scalr$Mode/FIT_TO_WIDTH)
 
-(def fit-height-mode
+(def- fit-height-mode
   Scalr$Mode/FIT_TO_HEIGHT)
 
 (defn- buffered-image [file] (ImageIO/read file))
