@@ -37,17 +37,6 @@ https://clojars.org/image-resizer
 ;Force width and a height resize (ignoring ratios)
 (force-resize (file "cheshire-cat.jpg") 10 1000)   ; => #<BufferedImage width=10 height=1000>
 
-;Turning a BufferedImage into something useful
-
-(require [image-resizer.format :refer :as format])
-
-;Saving as a file
-(format/as-file (resize (file "tea-party/mad-hatter.jpg") 10 10)
-                        "/tmp/tea-party/mad-hatter.jpg") ; => "/tmp/tea-party/mad-hatter_10x5.jpg"
-
-;To a stream (Useful for s3)
-(format/as-stream (resize (file "tea-party/mad-hatter.jpg") 10 10) "jpg") ; => #<ByteArrayInputStream>
-
 ;Crop the image width from a given x coordinate
 (crop-to-width (file "tea-party/mad-hatter.jpg") 0 10) ; => #<BufferedImage width=10 height=1000>
 
@@ -59,6 +48,17 @@ https://clojars.org/image-resizer
 
 ;Resize the image maintaining proportions and then crop it to the specified width and height
 (resize-and-crop (file "tea-party/mad-hatter.jpg") 10 10) ; => #<BufferedImage width=10 height=10>
+
+;Turning a BufferedImage into something useful
+
+(require [image-resizer.format :refer :as format])
+
+;Saving as a file
+(format/as-file (resize (file "tea-party/mad-hatter.jpg") 10 10)
+                        "/tmp/tea-party/mad-hatter.jpg") ; => "/tmp/tea-party/mad-hatter_10x5.jpg"
+
+;To a stream (Useful for s3)
+(format/as-stream (resize (file "tea-party/mad-hatter.jpg") 10 10) "jpg") ; => #<ByteArrayInputStream>
 ```
 
 ##License
