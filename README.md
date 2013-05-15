@@ -42,8 +42,11 @@ https://clojars.org/image-resizer
 (require [image-resizer.format :refer :as format])
 
 ;Saving as a file
-(format/save-as-file (resize (file "tea-party/mad-hatter.jpg") 10 10)
-                     "/tmp/tea-party/mad-hatter.jpg") ; => "/tmp/tea-party/mad-hatter_10x5.jpg"
+(format/as-file (resize (file "tea-party/mad-hatter.jpg") 10 10)
+                        "/tmp/tea-party/mad-hatter.jpg") ; => "/tmp/tea-party/mad-hatter_10x5.jpg"
+
+;To a stream (Useful for s3)
+(format/as-stream (resize (file "tea-party/mad-hatter.jpg") 10 10) "jpg") ; => #<ByteArrayInputStream>
 ```
 
 ##License
