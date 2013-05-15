@@ -2,14 +2,14 @@
   (:require
    [clojure.string :as str]))
 
-(defn file-name [file]
-  (first (seq (.split (.getName file) "\\."))))
+(defn- filename [name]
+  (second (re-find #"(.+?)(\.[^.]*$|$)" name)))
 
-(defn path [file]
-  (str/join "/" (butlast (seq (str/split (.getAbsolutePath file) #"/")))))
+(defn- path [path]
+  (str/join "/" (butlast (seq (str/split path #"/")))))
 
-(defn extension [file]
-  (last (seq (str/split (.getName file) #"\."))))
+(defn extension [name]
+  (last (seq (str/split name #"\."))))
 
-(defn new-filename [file dimensions]
-  (str (path file) "/" (file-name file) "_" (str/join "x" dimensions) "." (extension file)))
+(defn new-filename [name file-path dimensions]
+  (str (path file-path) "/" (filename name) "_" (str/join "x" dimensions) "." (extension name)))

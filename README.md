@@ -25,8 +25,11 @@ https://clojars.org/image-resizer
 ;Resize an image while respecting original ratio
 (resize (file "white-rabbit.jpg") 10 10) ; => BufferedImage
 
-;Resize an image just with width
-(resize (file "white-rabbit.jpg") 10) ; => BufferedImage
+;Resize an image to a width
+(fit-width (file "queen-of-hearts.jpg") 10) ; => BufferedImage
+
+;Resize an image to a height
+(fit-height (file "cheshire-cat.jpg") 10) ; => BufferedImage
 
 ;Resize an image to file
 (resize-to-file (file "mad-hatter.jpg") 10 10) ; => New resized image: mad-hatter_10x10.jpg
