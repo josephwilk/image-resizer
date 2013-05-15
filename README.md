@@ -47,6 +47,19 @@ https://clojars.org/image-resizer
 
 ;To a stream (Useful for s3)
 (format/as-stream (resize (file "tea-party/mad-hatter.jpg") 10 10) "jpg") ; => #<ByteArrayInputStream>
+
+;Crop the image width from a given x coordinate
+(crop-to-width (file "tea-party/mad-hatter.jpg") 0 10) ; => #<BufferedImage width=10 height=1000>
+
+;Crop the image height from a given y coordinate
+(crop-to-height (file "tea-party/mad-hatter.jpg") 0 10) ; => #<BufferedImage width=1000 height=10>
+
+;Crop the image width and height from given x and y coordinates
+(crop (file "tea-party/mad-hatter.jpg") 0 0 10 20) ; => #<BufferedImage width=10 height=20>
+
+;Resize the image maintaining proportions and then crop it to the
+specified width and height
+(resize-and-crop (file "tea-party/mad-hatter.jpg") 10 10) ; => #<BufferedImage width=10 height=10>
 ```
 
 ##License
