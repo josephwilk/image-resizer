@@ -34,6 +34,9 @@ https://clojars.org/image-resizer
 ;Resize an image to a height
 (resize-to-height (file "cheshire-cat.jpg") 10)   ; => #<BufferedImage width=5 height=10>
 
+;Force width and a height resize (ignoring ratios)
+(force-resize (file "cheshire-cat.jpg") 10 1000)   ; => #<BufferedImage width=10 height=1000>
+
 ;Turning a BufferedImage into something useful
 
 (require [image-resizer.format :refer :as format])

@@ -1,18 +1,12 @@
 (ns image-resizer.core
   (:require
    [clojure.string   :as str]
-   [image-resizer.fs :as fs])
+   [image-resizer.fs :as fs]
+   [image-resizer.modes :refer :all])
   (:import
    [java.io File]
    [javax.imageio ImageIO]
-   [org.imgscalr Scalr]
-   [org.imgscalr Scalr$Mode]))
-
-(def- fit-width-mode
-  Scalr$Mode/FIT_TO_WIDTH)
-
-(def- fit-height-mode
-  Scalr$Mode/FIT_TO_HEIGHT)
+   [org.imgscalr Scalr]))
 
 (defn- buffered-image [file] (ImageIO/read file))
 
@@ -27,3 +21,6 @@
 
 (defn resize [file width height]
   (Scalr/resize (buffered-image file) width height nil))
+
+(defn force-resize [file width height]
+  (Scalr/resize (buffered-image file) fit-exact-mode width height nil))

@@ -29,3 +29,6 @@
     (let [resized-image (resize test-image 10 10)]
       test-image    => (dimensions-of [600 314])
       resized-image => (dimensions-of [10 5]))))
+
+(fact "force a resize"
+  (force-resize test-image 100 1) => (dimensions-of [100 1]))
