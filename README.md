@@ -26,6 +26,26 @@ https://clojars.org/image-resizer
 
 ##Usage
 
+
+### Pipelining Transforms
+
+Image resizer creates tranforms which return fns that apply that transform to an image.
+
+If you want to perform a number of operations across an image (such as resize, crop & pad):
+
+```clojure
+(require [image-resizer.crop :refer :all])
+(require [image-resizer.resize :refer :all])
+(require [image-resizer.pad :refer :all])
+
+(-> (image
+    ((resize-fn 100 100))
+    ((crop-fn 100 100))
+    ((pad-fn 10))))
+```
+
+### Useful helpers wrapping transforms
+
 ```clojure
 (require [image-resizer.core :refer :all])
 
@@ -53,9 +73,11 @@ https://clojars.org/image-resizer
 
 ;Resize the image maintaining proportions and then crop it to the specified width and height
 (resize-and-crop (file "tea-party/mad-hatter.jpg") 10 10) ; => #<BufferedImage width=10 height=10>
+```
 
-;Turning a BufferedImage into something useful
+### Turning BufferedImage into something useful
 
+```Clojure
 (require [image-resizer.format :refer :as format])
 
 ;Saving as a file
@@ -64,19 +86,6 @@ https://clojars.org/image-resizer
 
 ;To a stream (Useful for s3)
 (format/as-stream (resize (file "tea-party/mad-hatter.jpg") 10 10) "jpg") ; => #<ByteArrayInputStream>
-```
-
-## Pipelining Transforms
-
-If you want to perform a number of operations across an image (such as resize, crop & anti-alias):
-
-```clojure
-(require [image-resizer.crop :refer :all])
-(require [image-resizer.resize :refer :all])
-
-(-> (image
-    ((resize-fn 100 100))
-    ((crop-fn 100 100)))
 ```
 
 ##License
