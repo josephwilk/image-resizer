@@ -4,7 +4,11 @@
 
 ####(Drink to make small)
 
+Too big?
 <img alt="Make smaller" src="http://www.cs.cmu.edu/~rgs/alice03a.gif" height="250px" />
+
+Drink to make small.
+
 <img alt="Drink to make small" src="http://www.cs.cmu.edu/~rgs/alice04a.gif" height="250px" />
 
 ## Why?
@@ -12,7 +16,7 @@
 * Very fast (supports hardware accelerated operations on most platforms)
 * No native libraries to install (I'm looking at you imagemagick)
 
-Image Resizer under the hood wraps [imgscalr](http://www.thebuzzmedia.com/software/imgscalr-java-image-scaling-library).
+Image Resizer under the hood wraps [imgscalr](https://github.com/thebuzzmedia/imgscalr).
 
 ##Installation
 
@@ -62,9 +66,9 @@ https://clojars.org/image-resizer
 (format/as-stream (resize (file "tea-party/mad-hatter.jpg") 10 10) "jpg") ; => #<ByteArrayInputStream>
 ```
 
-## Chaining Transforms
+## Pipelining Transforms
 
-If you want to perform a number of operations across an image (such as resize & crop):
+If you want to perform a number of operations across an image (such as resize, crop & anti-alias):
 
 ```clojure
 (require [image-resizer.crop :refer :all])
