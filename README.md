@@ -40,11 +40,11 @@ If you want to perform a number of operations across an image (such as resize, c
 (require [image-resizer.pad :refer :all])
 (require [image-resizer.rotate :refer :all])
 
-(-> (image
+(-> image
     ((resize-fn 100 100))
     ((crop-fn 100 100))
     ((rotate-vertically-fn))
-    ((pad-fn 10))))
+    ((pad-fn 10)))
 ```
 
 ### Useful helpers wrapping transforms
