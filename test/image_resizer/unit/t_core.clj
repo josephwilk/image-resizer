@@ -34,13 +34,13 @@
   (force-resize test-image 100 1) => (dimensions-of [100 1]))
 
 (fact "crop"
-  (crop test-image 10 20 30 40) => (dimensions-of [30 40]))
+  (crop test-image 30 40) => (dimensions-of [30 40]))
 
 (fact "crop to width"
-  (crop-to-width test-image 10 30) => (dimensions-of [30 314]))
+  (crop-to-width test-image 30) => (dimensions-of [30 314]))
 
 (fact "crop to height"
-  (crop-to-height test-image 10 30) => (dimensions-of [600 30]))
+  (crop-to-height test-image 30) => (dimensions-of [600 30]))
 
 (fact "resize the image and crop to reach the desired size"
   (resize-and-crop test-image 44 10) => (dimensions-of [44 10]))

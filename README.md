@@ -62,6 +62,19 @@ https://clojars.org/image-resizer
 (format/as-stream (resize (file "tea-party/mad-hatter.jpg") 10 10) "jpg") ; => #<ByteArrayInputStream>
 ```
 
+## Chaining Transforms
+
+If you want to perform a number of operations across an image (such as resize & crop):
+
+```clojure
+(require [image-resizer.crop :refer :all])
+(require [image-resizer.resize :refer :all])
+
+(-> (image
+    ((resize-fn 100 100))
+    ((crop-fn 100 100)))
+```
+
 ##License
 (The MIT License)
 

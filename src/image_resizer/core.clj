@@ -2,48 +2,35 @@
   (:require
    [clojure.string   :as str]
    [image-resizer.fs :as fs]
-   [image-resizer.modes :refer :all])
-  (:import
-   [java.io File]
-   [javax.imageio ImageIO]
-   [java.awt.image BufferedImage]
-   [org.imgscalr Scalr]))
-
-(defn- buffered-image [image]
-  (if (instance? BufferedImage image)
-    image
-    (ImageIO/read image)))
+   [image-resizer.resize :refer :all]
+   [image-resizer.crop :refer :all]))
 
 (defn dimensions [image]
   [(.getWidth image) (.getHeight image)])
 
-(defn resize-to-width [file width]
-  (Scalr/resize (buffered-image file) fit-width-mode width nil))
+(defn resize-to-width [image width]
+  ((resize-width-fn width) image))
 
-(defn resize-to-height [file height]
-  (Scalr/resize (buffered-image file) fit-height-mode height nil))
+(defn resize-to-height [image height]
+  ((resize-height-fn height) image))
 
-(defn resize [file width height]
-  (Scalr/resize (buffered-image file) width height nil))
+(defn resize [image width height]
+  ((resize-fn width height) image))
 
-(defn force-resize [file width height]
-  (Scalr/resize (buffered-image file) fit-exact-mode width height nil))
+(defn force-resize [image width height]
+  ((force-resize-fn width height) image))
 
-(defn crop [image x y width height]
-  (Scalr/crop (buffered-image image) x y width height nil))
+(defn crop [image width height]
+  ((crop-fn width height) image))
 
-(defn crop-to-width [image x width]
-  (let [buffered (buffered-image image)
-        y 0
-        [_ height] (dimensions buffered)]
-    (Scalr/crop buffered x y width height nil)))
+(defn crop-to-width [image width]
+  ((crop-width-fn width) image))
 
-(defn crop-to-height [image y height]
-  (let [buffered (buffered-image image)
-        x 0
-        [width _] (dimensions buffered)]
-    (Scalr/crop buffered x y width height nil)))
+(defn crop-to-height [image height]
+  ((crop-height-fn height) image))
 
 (defn resize-and-crop [image width height]
-  (let [resized-image (resize image width height)]
-      (crop resized-image 0 0 width height)))
+  (->
+   image
+   ((resize-fn width height))
+   ((crop-fn width height))))
