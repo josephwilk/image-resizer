@@ -1,16 +1,9 @@
 (ns image-resizer.resize
   (:require
-   [image-resizer.modes :refer :all])
+   [image-resizer.modes :refer :all]
+   [image-resizer.util :refer :all])
   (:import
-   [java.io File]
-   [javax.imageio ImageIO]
-   [java.awt.image BufferedImage]
    [org.imgscalr Scalr]))
-
-(defn- buffered-image [image]
-  (if (instance? BufferedImage image)
-    image
-    (ImageIO/read image)))
 
 (defn resize-height-fn [height]
   (fn [file]
