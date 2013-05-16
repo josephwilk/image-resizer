@@ -83,6 +83,11 @@ If you want to perform a number of operations across an image (such as resize, c
 (format/as-stream (resize (file "tea-party/mad-hatter.jpg") 10 10) "jpg") ; => #<ByteArrayInputStream>
 ```
 
+##Contributors
+
+* Joseph wilk (http://blog.josephwilk.net)
+* Thiago Nunes 
+
 ##License
 (The MIT License)
 
