@@ -27,3 +27,15 @@
 (defn flip-horizontally-fn []
   (fn [image]
     (Scalr/rotate (buffered-image image) flip-horizontal nil)))
+
+(defn rotate-90-counter-clockwise-fn []
+  (fn [image]
+    (Scalr/rotate (buffered-image image) counter-clockwise-90 nil)))
+
+(defn rotate-180-counter-clockwise-fn []
+  (fn [image]
+    (Scalr/rotate (buffered-image image) counter-clockwise-180 nil)))
+
+(defn rotate-270-counter-clockwise-fn []
+  (fn [image]
+    (Scalr/rotate (buffered-image image) counter-clockwise-270 nil)))
