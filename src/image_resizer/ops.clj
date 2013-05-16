@@ -2,14 +2,14 @@
   (:import
    [org.imgscalr Scalr]))
 
-(def antialias-op
+(def antialias
   Scalr/OP_ANTIALIAS)
 
-(def brighter-op
+(def brighter
   Scalr/OP_BRIGHTER)
 
-(def darker-op
+(def darker
   Scalr/OP_DARKER)
 
-(def grayscale-op
+(def grayscale
   Scalr/OP_GRAYSCALE)
