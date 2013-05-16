@@ -4,12 +4,7 @@
 
 ####(Drink to make small)
 
-Too big?
-<img alt="Make smaller" src="http://www.cs.cmu.edu/~rgs/alice03a.gif" height="250px" />
-
-Drink to make small.
-
-<img alt="Drink to make small" src="http://www.cs.cmu.edu/~rgs/alice04a.gif" height="250px" />
+<img alt="Make smaller" src="http://www.cs.cmu.edu/~rgs/alice03a.gif" height="250px" /> <img alt="Drink to make small" src="http://www.cs.cmu.edu/~rgs/alice04a.gif" height="250px" />
 
 ## Why?
 
