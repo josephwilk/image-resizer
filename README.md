@@ -21,21 +21,29 @@ https://clojars.org/image-resizer
 
 ##Usage
 
-
 ### Pipelining Transforms
 
 Image resizer creates tranforms which return fns that apply that transform to an image.
 
-If you want to perform a number of operations across an image (such as resize, crop & pad):
+A number of transforms are supported:
+
+* resize
+* crop
+* pad
+* rotate
+
+If you want to perform a number of operations across an image (such as resize, crop, flip & pad):
 
 ```clojure
 (require [image-resizer.crop :refer :all])
 (require [image-resizer.resize :refer :all])
 (require [image-resizer.pad :refer :all])
+(require [image-resizer.rotate :refer :all])
 
 (-> (image
     ((resize-fn 100 100))
     ((crop-fn 100 100))
+    ((rotate-vertically-fn))
     ((pad-fn 10))))
 ```
 
@@ -86,7 +94,7 @@ If you want to perform a number of operations across an image (such as resize, c
 ##Contributors
 
 * Joseph wilk (http://blog.josephwilk.net)
-* Thiago Nunes 
+* Thiago Nunes
 
 ##License
 (The MIT License)

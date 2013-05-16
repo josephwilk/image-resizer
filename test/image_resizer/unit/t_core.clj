@@ -1,22 +1,11 @@
 (ns image-resizer.unit.t-core
-  (:import
-   [javax.imageio ImageIO])
   (:require
-   [midje.sweet        :refer :all]
-   [image-resizer.core :refer :all]
-   [clojure.java.io    :refer :all]
-   [clojure.java.shell :as shell]))
+   [midje.sweet                :refer :all]
+   [image-resizer.unit.support :refer :all]
+   [image-resizer.core         :refer :all]
+   [clojure.java.shell         :as shell]))
 
 (namespace-state-changes (after :facts (shell/sh "rm" "-f" "test/fixtures/")))
-
-(def test-image
-  (file "test/fixtures/platypus.jpg"))
-
-(defn dimensions-of [[width height]]
-  (fn [file]
-    (let [buffered-file (if (= java.io.File (type file)) (ImageIO/read file) file)]
-      (= [width height]
-         (dimensions buffered-file)))))
 
 (fact "resize to width"
   (resize-to-width test-image 44) => (dimensions-of [44 23]))
