@@ -57,14 +57,14 @@ If you want to perform a number of operations across an image (such as resize, c
 ;Force width and a height resize (ignoring ratios)
 (force-resize (file "cheshire-cat.jpg") 10 1000)   ; => #<BufferedImage width=10 height=1000>
 
-;Crop the image width from a given x coordinate
-(crop-to-width (file "tea-party/mad-hatter.jpg") 0 10) ; => #<BufferedImage width=10 height=1000>
+;Crop the image width
+(crop-to-width (file "tea-party/mad-hatter.jpg") 10) ; => #<BufferedImage width=10 height=1000>
 
-;Crop the image height from a given y coordinate
-(crop-to-height (file "tea-party/mad-hatter.jpg") 0 10) ; => #<BufferedImage width=1000 height=10>
+;Crop the image height
+(crop-to-height (file "tea-party/mad-hatter.jpg") 10) ; => #<BufferedImage width=1000 height=10>
 
-;Crop the image width and height from given x and y coordinates
-(crop (file "tea-party/mad-hatter.jpg") 0 0 10 20) ; => #<BufferedImage width=10 height=20>
+;Crop the image width and height
+(crop (file "tea-party/mad-hatter.jpg") 10 20) ; => #<BufferedImage width=10 height=20>
 
 ;Resize the image maintaining proportions and then crop it to the specified width and height
 (resize-and-crop (file "tea-party/mad-hatter.jpg") 10 10) ; => #<BufferedImage width=10 height=10>
