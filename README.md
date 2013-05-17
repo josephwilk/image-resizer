@@ -45,14 +45,16 @@ If you want to perform a number of operations across an image (such as resize, c
     ((crop-fn 100 100))
     ((rotate-vertically-fn))
     ((pad-fn 10)))
-    
 
-;Or if you want to apply a transform to a batch of images
 
-(doall (map (resize-fn 100 100) [image1 image2 image3 image4]))
+;Or if you want to apply a transform to a batch of images in parallel:
+
+(doall (clojure.core/pmap (resize-fn 100 100) [image1 image2 image3 image4]))
 ```
 
-### Useful helpers wrapping transforms
+### Lazy helpers around transforms
+
+If creating your own pipelines seems a bit funky, you can use some nice helpers for commmon operations:
 
 ```clojure
 (require [image-resizer.core :refer :all])
