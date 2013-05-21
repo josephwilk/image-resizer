@@ -1,4 +1,4 @@
-(defproject image-resizer "0.1.1"
+(defproject image-resizer "0.1.2"
   :description "Resize/Crop/Pad images"
   :url "https://github.com/josephwilk/image-resizer"
   :dependencies [[org.clojure/clojure "1.5.0"]
