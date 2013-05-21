@@ -52,6 +52,18 @@ If you want to perform a number of operations across an image (such as resize, c
 (doall (clojure.core/pmap (resize-fn 100 100) [image1 image2 image3 image4]))
 ```
 
+### Tweaking quality/speed ratio
+
+You can tweak your preferences for a resize transform. Favouring speed or quality:
+
+```clojure
+(require [image-resizer.resize :refer :all])
+(require [image-resizer.scale-methods :refer :all])
+
+(resize-fn 100 100 ultra-quality) ;best quality
+(resize-fn 100 100 speed)         ;fast as possible resize
+```
+
 ### Lazy helpers around transforms
 
 If creating your own pipelines seems a bit funky, you can use some nice helpers for commmon operations:
