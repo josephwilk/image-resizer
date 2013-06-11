@@ -23,4 +23,4 @@
 
 (fact "it should rotate 270 dregrees counter clockwise"
   test-image => (dimensions-of [600 314])
-  ((rotate-270-counter-clockwise-fn) test-image) => (dimensions-of [600 314]))
+  ((rotate-270-counter-clockwise-fn) test-image) => (dimensions-of [314 600]))
