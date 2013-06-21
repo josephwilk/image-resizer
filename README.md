@@ -93,6 +93,9 @@ If creating your own pipelines seems a bit funky, you can use some nice helpers 
 ;Crop the image width and height
 (crop (file "tea-party/mad-hatter.jpg") 10 20) ; => #<BufferedImage width=10 height=20>
 
+;Crop the image width and height from a coord 
+(crop-from (file "tea-party/mad-hatter.jpg") 6 7 10 20) ; => #<BufferedImage width=10 height=20>
+
 ;Resize the image maintaining proportions and then crop it to the specified width and height
 (resize-and-crop (file "tea-party/mad-hatter.jpg") 10 10) ; => #<BufferedImage width=10 height=10>
 ```
