@@ -25,6 +25,11 @@
       (.exists (io/as-file new-file)) => truthy)))
 
 (facts "as-stream"
-  (fact "writes a buffered image to an input stream"
+  (fact "writes a buffered image to an input stream select by format"
     (let [stream (as-stream buffered-file (fs/extension (.getAbsolutePath test-image)))]
+      stream => (is-a InputStream))))
+
+(facts "as-stream-by-mime-type"
+  (fact "writes a buffered image to an input stream selected by mime-type"
+    (let [stream (as-stream-by-mime-type buffered-file "image/jpeg")]
       stream => (is-a InputStream))))
