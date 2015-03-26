@@ -103,7 +103,7 @@ If creating your own pipelines seems a bit funky, you can use some nice helpers 
 ### Turning BufferedImage into something useful
 
 ```Clojure
-(require [image-resizer.format :refer :as format])
+(require [image-resizer.format :as format])
 
 ;Saving as a file
 (format/as-file (resize (file "tea-party/mad-hatter.jpg") 10 10)
