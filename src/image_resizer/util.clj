@@ -7,7 +7,7 @@
 (defn buffered-image [image]
   (if (instance? BufferedImage image)
     image
-    (ImageIO/read image)))
+    (ImageIO/read ^java.io.ByteArrayInputStream image)))
 
 (defn dimensions [image]
   [(.getWidth image) (.getHeight image)])
