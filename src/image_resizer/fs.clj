@@ -8,8 +8,8 @@
 (defn- path [name]
   (str/join "/" (butlast (seq (str/split name #"/")))))
 
-(defn extension [name]
+(defn ^String extension [name]
   (last (seq (str/split name #"\."))))
 
-(defn new-filename [file-with-path dimensions]
+(defn ^String new-filename [file-with-path dimensions]
   (str (path file-with-path) "/" (filename file-with-path) "_" (str/join "x" dimensions) "." (extension file-with-path)))
