@@ -4,7 +4,8 @@
    [image-resizer.core :refer :all])
   (:import
    [java.io File ByteArrayOutputStream ByteArrayInputStream]
-   [javax.imageio ImageIO]))
+   [java.awt.image BufferedImage]
+   [javax.imageio ImageIO ImageWriter]))
 
 (defn as-file [buffered-file file-with-path]
   (let [new-dimensions (dimensions buffered-file)
@@ -16,14 +17,14 @@
   "image-format something like jpg, png.."
   [buffered-image image-format]
   (let [baos (ByteArrayOutputStream.)]
-    (ImageIO/write buffered-image image-format baos)
+    (ImageIO/write ^BufferedImage buffered-image image-format baos)
     (ByteArrayInputStream. (.toByteArray baos))))
 
 (defn as-stream-by-mime-type
   "mime-type something like image/jpeg, image/png.."
-  [buffered-image mime-type]
+  [buffered-image ^String mime-type]
   (let [baos (ByteArrayOutputStream.)]
     (let [writer (.next (ImageIO/getImageWritersByMIMEType mime-type))]
-        (.setOutput writer (ImageIO/createImageOutputStream baos))
-        (.write writer buffered-image)
+        (.setOutput ^ImageWriter writer (ImageIO/createImageOutputStream baos))
+        (.write ^ImageWriter writer ^BufferedImage buffered-image)
         (ByteArrayInputStream. (.toByteArray baos)))))
