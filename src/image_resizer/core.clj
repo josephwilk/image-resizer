@@ -1,11 +1,13 @@
 (ns image-resizer.core
+  (:import
+    [java.awt.image BufferedImage])
   (:require
    [clojure.string   :as str]
    [image-resizer.fs :as fs]
    [image-resizer.resize :refer :all]
    [image-resizer.crop :refer :all]))
 
-(defn dimensions [image]
+(defn dimensions [^BufferedImage image]
   [(.getWidth image) (.getHeight image)])
 
 (defn resize-to-width [image width]

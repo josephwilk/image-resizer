@@ -5,30 +5,31 @@
    [image-resizer.util          :refer :all])
   (:import
    [java.awt.image BufferedImageOp BufferedImage]
-   [org.imgscalr Scalr]))
+   [org.imgscalr Scalr Scalr$Method]))
 
-(def no-ops (into-array BufferedImageOp []))
+(def ^{:tag (Class/forName "[Ljava.awt.image.BufferedImageOp;")} no-ops
+  (into-array BufferedImageOp []))
 
 (defn resize-height-fn
   ([height] (resize-height-fn height automatic))
-  ([height scale-method]
+  ([height ^Scalr$Method scale-method]
      (fn [file]
-       (Scalr/resize ^BufferedImage (buffered-image file) scale-method fit-height-mode height no-ops))))
+       (Scalr/resize (buffered-image file) scale-method fit-height-mode (int height) no-ops))))
 
 (defn resize-width-fn
   ([width] (resize-width-fn width automatic))
-  ([width scale-method]
+  ([width ^Scalr$Method scale-method]
      (fn [file]
-       (Scalr/resize ^BufferedImage (buffered-image file) scale-method fit-width-mode width no-ops))))
+       (Scalr/resize (buffered-image file) scale-method fit-width-mode (int width) no-ops))))
 
 (defn force-resize-fn
   ([width height] (force-resize-fn width height automatic))
-  ([width height scale-method]
+  ([width height ^Scalr$Method scale-method]
      (fn [file]
-       (Scalr/resize ^BufferedImage (buffered-image file) scale-method fit-exact-mode width height no-ops))))
+       (Scalr/resize (buffered-image file) scale-method fit-exact-mode (int width) (int height) no-ops))))
 
 (defn resize-fn
   ([width height] (resize-fn width height automatic))
-  ([width height scale-method]
+  ([width height ^Scalr$Method scale-method]
      (fn [file]
-       (Scalr/resize ^BufferedImage (buffered-image file) scale-method width height no-ops))))
+       (Scalr/resize (buffered-image file) scale-method (int width) (int height) no-ops))))
