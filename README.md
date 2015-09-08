@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/josephwilk/image-resizer.png?branch=master)](https://travis-ci.org/josephwilk/image-resizer)
 
+[![Clojars Project](http://clojars.org/image-resizer/latest-version.svg)](http://clojars.org/image-resizer)
+
 ####(Drink to make small)
 
 <img alt="Make smaller" src="http://www.cs.cmu.edu/~rgs/alice03a.gif" height="250px" /> <img alt="Drink to make small" src="http://www.cs.cmu.edu/~rgs/alice04a.gif" height="250px" />
