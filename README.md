@@ -107,9 +107,16 @@ If creating your own pipelines seems a bit funky, you can use some nice helpers 
 ```Clojure
 (require [image-resizer.format :as format])
 
-;Saving as a file
-(format/as-file (resize (file "tea-party/mad-hatter.jpg") 10 10)
-                        "/tmp/tea-party/mad-hatter.jpg") ; => "/tmp/tea-party/mad-hatter_10x5.jpg"
+;Saving as an auto-named file
+(format/as-file
+  (resize (file "tea-party/mad-hatter.jpg") 10 10)
+  "/tmp/tea-party/mad-hatter.jpg") ; => "/tmp/tea-party/mad-hatter_10x5.jpg"
+
+;Saving under a specific name
+(format/as-file
+  (resize (file "tea-party/mad-hatter.jpg") 10 10)
+  "/tmp/tea-party/tiny-hatter.jpg"
+  :verbatim) ; => "/tmp/tea-party/tiny-hatter.jpg"
 
 ;To a stream (Useful for s3)
 (format/as-stream (resize (file "tea-party/mad-hatter.jpg") 10 10) "jpg") ; => #<ByteArrayInputStream>

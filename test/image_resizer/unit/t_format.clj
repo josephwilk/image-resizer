@@ -19,10 +19,14 @@
     (instance? class thing)))
 
 (facts "as-file"
-  (fact "writes a buffered image to a file"
+  (fact "writes a buffered image to an auto-renamed file"
     (let [path (.getAbsolutePath test-image)
           new-file (as-file buffered-file path)]
-      (.exists (io/as-file new-file)) => truthy)))
+      (.exists (io/as-file new-file)) => truthy))
+  (fact "writes a buffered image to a user-named file"
+    (let [path "test/fixtures/odd-animal.jpg"
+          new-file (as-file buffered-file path :verbatim)]
+      (.exists (io/as-file path)) => truthy)))
 
 (facts "as-stream"
   (fact "writes a buffered image to an input stream select by format"
