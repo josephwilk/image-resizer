@@ -7,10 +7,15 @@
    [java.awt.image BufferedImage]
    [javax.imageio ImageIO ImageWriter]))
 
-(defn as-file [^BufferedImage buffered-file file-with-path]
-  (let [new-dimensions (dimensions buffered-file)
-        resized-file (File. (fs/new-filename file-with-path new-dimensions))]
-    (ImageIO/write buffered-file (fs/extension file-with-path) resized-file)
+(defn as-file [^BufferedImage buffered-file file-with-path & rest]
+  (let [flags (into #{} rest)
+        new-dimensions (dimensions buffered-file)
+        file-name (if (contains? flags :verbatim)
+                    file-with-path
+                    (fs/new-filename file-with-path new-dimensions))
+        file-ext (fs/extension file-name)
+        resized-file (File. file-name)]
+    (ImageIO/write buffered-file file-ext resized-file)
     (.getAbsolutePath resized-file)))
 
 (defn as-stream
