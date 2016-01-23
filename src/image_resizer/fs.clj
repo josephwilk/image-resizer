@@ -3,13 +3,16 @@
    [clojure.string :as str]))
 
 (defn- filename [name]
-  (second (re-find #"(.+?)(\.[^.]*$|$)" (last (str/split name #"/")))))
+  (second (re-find #"([^/]+)(?=\.\w+$)" name)))
 
 (defn- path [name]
-  (str/join "/" (butlast (seq (str/split name #"/")))))
+  (second (re-find #"(.*)/" name)))
 
 (defn ^String extension [name]
-  (last (seq (str/split name #"\."))))
+  (re-find #"\w+$" name))
 
 (defn ^String new-filename [file-with-path dimensions]
-  (str (path file-with-path) "/" (filename file-with-path) "_" (str/join "x" dimensions) "." (extension file-with-path)))
+  (format "%s/%s_%s.%s" (path file-with-path)
+                        (filename file-with-path)
+                        (str/join "x" dimensions)
+                        (extension file-with-path)))
