@@ -11,8 +11,14 @@
   (fact "does not crop the width when the given width is bigger than images width"
     ((crop-fn 0 0 12345 200) test-image) => (dimensions-of [600 200]))
 
+  (fact "uses the original width minus x when the given width plus x is bigger than original width"
+    ((crop-fn 20 0 590 200) test-image) => (dimensions-of [580 200]))
+
   (fact "does not crop the height when the given height is bigger than images height"
-    ((crop-fn 0 0 100 12345) test-image) => (dimensions-of [100 314])))
+    ((crop-fn 0 0 100 12345) test-image) => (dimensions-of [100 314]))
+
+  (fact "uses original height minus y when the given height plus y is bigger than original height"
+    ((crop-fn 0 150 100 200) test-image) => (dimensions-of [100 164])))
 
 (facts "about cropping to width and height from a starting coordinate"
   (fact "crops the image to the given width and height starting at a coord"
