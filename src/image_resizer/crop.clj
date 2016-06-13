@@ -4,12 +4,17 @@
   (:import
    [org.imgscalr Scalr]))
 
+(defn- bound-dim [original-dim coord dim]
+  (if (> (+ coord dim) original-dim)
+    (- original-dim coord)
+    dim))
+
 (defn crop-fn [x y width height]
   (fn [image]
     (let [buffered (buffered-image image)
           [original-width original-height] (dimensions buffered)
-          crop-width (min original-width width)
-          crop-height (min original-height height)]
+          crop-width (bound-dim original-width x width)
+          crop-height (bound-dim original-height y height)]
       (Scalr/crop buffered x y crop-width crop-height nil))))
 
 (defn crop-width-fn [width]
