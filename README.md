@@ -1,10 +1,10 @@
-#Clojure Image Resizer
+# Clojure Image Resizer
 
 [![Build Status](https://travis-ci.org/josephwilk/image-resizer.png?branch=master)](https://travis-ci.org/josephwilk/image-resizer)
 
 [![Clojars Project](http://clojars.org/image-resizer/latest-version.svg)](http://clojars.org/image-resizer)
 
-####(Drink to make small)
+#### (Drink to make small)
 
 <img alt="Make smaller" src="http://www.cs.cmu.edu/~rgs/alice03a.gif" height="250px" /> <img alt="Drink to make small" src="http://www.cs.cmu.edu/~rgs/alice04a.gif" height="250px" />
 
@@ -21,7 +21,7 @@ Add the following dependency to your project.clj file:
 
 [![Clojars Project](http://clojars.org/image-resizer/latest-version.svg)](http://clojars.org/image-resizer)
 
-##Usage
+## Usage
 
 ### Pipelining Transforms
 
@@ -122,12 +122,12 @@ If creating your own pipelines seems a bit funky, you can use some nice helpers 
 (format/as-stream (resize (file "tea-party/mad-hatter.jpg") 10 10) "jpg") ; => #<ByteArrayInputStream>
 ```
 
-##Contributors
+## Contributors
 
 * Joseph wilk (http://blog.josephwilk.net)
 * Thiago Nunes (http://www.thiagotnunes.com)
 
-##License
+## License
 (The MIT License)
 
 Copyright (c) 2013-2015 Joseph Wilk
