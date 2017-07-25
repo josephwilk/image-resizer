@@ -130,7 +130,7 @@ If creating your own pipelines seems a bit funky, you can use some nice helpers 
 ## License
 (The MIT License)
 
-Copyright (c) 2013-2015 Joseph Wilk
+Copyright (c) 2013-present Joseph Wilk
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
