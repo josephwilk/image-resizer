@@ -15,7 +15,7 @@
 
 Image Resizer under the hood wraps [imgscalr](https://github.com/thebuzzmedia/imgscalr).
 
-##Installation
+## Installation
 
 Add the following dependency to your project.clj file:
 
